@@ -1,7 +1,7 @@
 let autoPlayInterval = null;
 async function randomQuote() {
   try {
-    const res = await fetch("http://127.0.0.1:3000/");
+    const res = await fetch("https://aida-quote-backend.hosting.codeyourfuture.io/");
     const text = await res.text();
     const [quotePart, authorPart] = text.split('"-');
     const quoteValue = document.getElementById("quote");
@@ -40,7 +40,7 @@ document.getElementById("add-quote").addEventListener("click", async () => {
   if (!quote || !author) return alert("Both quote and author required.");
 
   try {
-    const res = await fetch("http://127.0.0.1:3000/", {
+    const res = await fetch("https://aida-quote-backend.hosting.codeyourfuture.io/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ quote, author }),
